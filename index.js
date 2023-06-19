@@ -19,3 +19,5 @@ async function splitStrWithDelay(msg) {
 bot.on('message', (msg) => {
   splitStrWithDelay(msg);
 });
+
+console.log("work")
