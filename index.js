@@ -6,9 +6,10 @@ const TelegramBot = require('node-telegram-bot-api');
 
 const bot = new TelegramBot(token, { polling: true });
 
-async function splitStrWithDelay(msg) {
-  const chatId = msg.chat.id;
-  const messageText = msg.text;
+
+
+async function splitStrWithDelay(messageText, chatId) {
+
   const msgs = messageText.split('\n');
 
   for (let i = 0; i < msgs.length; i++) {
@@ -17,7 +18,9 @@ async function splitStrWithDelay(msg) {
 }
 
 bot.on('message', (msg) => {
-  splitStrWithDelay(msg);
+  const chatId = msg.chat.id;
+  const messageText = msg.text;
+  splitStrWithDelay(messageText, chatId);
 });
 
 console.log("work")
